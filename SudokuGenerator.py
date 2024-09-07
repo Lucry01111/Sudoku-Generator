@@ -31,7 +31,6 @@ class SudokuGenerator:
         empty_loc = self.find_empty_location(board)
         if not empty_loc:
             return True  # Puzzle is solved
-        
         row, col = empty_loc
         nums = list(range(1, 10))
         random.shuffle(nums)  # Randomize order for diversity
@@ -42,7 +41,6 @@ class SudokuGenerator:
                 if self.solve_sudoku(board):
                     return True
                 board[row, col] = 0
-        
         return False
 
     def generate_full_sudoku(self):
@@ -99,7 +97,6 @@ class SudokuGenerator:
                 value = board[row, col]
                 if value != 0:
                     ax.text(col + 0.5, 8.5 - row, str(value), ha='center', va='center', fontsize=20)
-        
         plt.gca().invert_yaxis()
         plt.show()
 
@@ -113,7 +110,6 @@ def main():
 
     generator = SudokuGenerator()
     sudoku_board = generator.generate_sudoku(difficulty)
-
     print("\nGenerated Sudoku:")
     generator.plot_board(sudoku_board)
 
